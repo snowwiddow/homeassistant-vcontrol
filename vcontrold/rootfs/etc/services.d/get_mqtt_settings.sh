@@ -5,7 +5,9 @@ export MQTT_TOPIC=$(bashio::config 'mqtt_topic')
 
 # Check if user has provided MQTT configuration
 if bashio::config.has_value 'mqtt_host' \
-    && bashio::config.has_value 'mqtt_port'; then
+    && bashio::config.has_value 'mqtt_port' \
+    && bashio::config.has_value 'mqtt_user' \
+    && bashio::config.has_value 'mqtt_password'; then
 
     # Use configured MQTT settings
     export MQTT_HOST=$(bashio::config 'mqtt_host')
